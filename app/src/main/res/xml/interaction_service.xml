@@ -19,5 +19,4 @@
 <voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
     android:sessionService="com.assistant.screensearch.MainInteractionSessionService"
     android:recognitionService="com.assistant.screensearch.MainRecognitionService"
-    android:settingsActivity="com.assistant.screensearch.SettingsActivity"
     android:supportsAssist="true" />
