@@ -10,14 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".VoiceInteractionMain" android:label="@string/app_name"
-            android:theme="@android:style/Theme.Material">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".AssistProxyActivity"
             android:label="Test Assist Proxy"
             android:theme="@android:style/Theme.NoDisplay"

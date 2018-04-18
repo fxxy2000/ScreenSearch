@@ -141,12 +141,7 @@ public class TestInteractionActivity extends Activity implements View.OnClickLis
             VoiceInteractor.PickOptionRequest req = new TestPickOption(options);
             mInteractor.submitRequest(req, REQUEST_PICK);
         } else if (v == mJumpOutButton) {
-            Log.i(TAG, "Jump out");
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            intent.setComponent(new ComponentName(this, VoiceInteractionMain.class));
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+
         } else if (v == mCancelButton && mCurrentRequest != null) {
             Log.i(TAG, "Cancel request");
             mCurrentRequest.cancel();
