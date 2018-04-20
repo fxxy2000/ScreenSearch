@@ -83,9 +83,7 @@ public class MainInteractionSession extends VoiceInteractionSession
         Log.i(TAG, "onShow: flags=0x" + Integer.toHexString(showFlags) + " args=" + args);
         mState = STATE_IDLE;
         mStartIntent = args != null ? (Intent)args.getParcelable("intent") : null;
-        if (mStartIntent == null) {
-            mStartIntent = new Intent(getContext(), TestInteractionActivity.class);
-        }
+
         if (mAssistVisualizer != null) {
             mAssistVisualizer.clearAssistData();
         }

@@ -49,14 +49,6 @@
             </intent-filter>
             <meta-data android:name="android.speech" android:resource="@xml/recognition_service" />
         </service>
-        <activity android:name=".TestInteractionActivity" android:label="Voice Interaction Target"
-            android:theme="@android:style/Theme.Material.Light">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.VOICE" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
