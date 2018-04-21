@@ -20,9 +20,9 @@ import android.service.voice.VoiceInteractionSession;
 import android.service.voice.VoiceInteractionSessionService;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class MainInteractionSessionService extends VoiceInteractionSessionService {
+public class SessionService extends VoiceInteractionSessionService {
     @Override
     public VoiceInteractionSession onNewSession(Bundle args) {
-        return new MainInteractionSession(this);
+        return new Session(this);
     }
 }

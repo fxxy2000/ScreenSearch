@@ -20,6 +20,6 @@ import android.os.Build;
 import android.service.voice.VoiceInteractionService;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class MainInteractionService extends VoiceInteractionService {
+public class MainService extends VoiceInteractionService {
 
 }

@@ -32,9 +32,9 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainInteractionSession extends VoiceInteractionSession
+public class Session extends VoiceInteractionSession
         implements View.OnClickListener {
-    static final String TAG = "MainInteractionSession";
+    static final String TAG = "Session";
     Intent mStartIntent;
     View mContentView;
     AssistVisualizer mAssistVisualizer;
@@ -68,7 +68,7 @@ public class MainInteractionSession extends VoiceInteractionSession
     CharSequence mPendingPrompt;
     Request mPendingRequest;
     int mCurrentTask = -1;
-    MainInteractionSession(Context context) {
+    Session(Context context) {
         super(context);
     }
     @Override
