@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2015 The Android Open Source Project
+package com.assistant.screensearch;/*
+ * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.assistant.screensearch;
-import android.app.Activity;
-import android.content.Intent;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
-public class AssistProxyActivity extends Activity {
+import android.service.voice.VoiceInteractionSession;
+import android.service.voice.VoiceInteractionSessionService;
+
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+public class SessionService extends VoiceInteractionSessionService {
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        finish();
-        Intent intent = new Intent(this, MainInteractionService.class);
-        intent.setAction(Intent.ACTION_ASSIST);
-        startService(intent);
+    public VoiceInteractionSession onNewSession(Bundle args) {
+        return new Session(this);
     }
 }

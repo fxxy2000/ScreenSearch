@@ -14,16 +14,12 @@ package com.assistant.screensearch;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import android.app.Activity;
-import android.os.Bundle;
 
-/**
- * Stub activity to test out settings selection for voice interactor.
- */
-public class SettingsActivity extends Activity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
-    }
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.service.voice.VoiceInteractionService;
+
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+public class MainService extends VoiceInteractionService {
+
 }
