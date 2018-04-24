@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 
@@ -46,16 +48,14 @@ public class GoogleVisionService {
 
     public static class GsvResult {
         String error;
-        Map<String, List<Vertex>> map;
+        Map<String, List<Vertex>> map = new HashMap<>();
     }
 
-    public GoogleVisionService(Context ctx, GoogleVisionServiceCallback callback) {
+    public GoogleVisionService(Context ctx, Uri uri, GoogleVisionServiceCallback callback) {
+        assert(Looper.myLooper() == Looper.getMainLooper());
         this.ctx = ctx.getApplicationContext();
         this.callback = callback;
-    }
-
-    private void googleScan (Uri uri, GoogleVisionServiceCallback callback) {
-
+        uploadImage(uri);
     }
 
     private void uploadImage(Uri uri) {
@@ -70,10 +70,24 @@ public class GoogleVisionService {
                 callCloudVision(bitmap);
             } catch (IOException e) {
                 Log.d(TAG, "Image picking failed because " + e.getMessage());
+                sendErrorResult(e.getMessage());
             }
         } else {
             Log.d(TAG, "Image picker gave us a null image.");
+            sendErrorResult("uri empty");
         }
+    }
+
+    private void sendErrorResult(final String error) {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                GsvResult result = new GsvResult();
+                result.error = error;
+                callback.onReceivingTextsAndBounds(result);
+            }
+        };
+        new Handler(Looper.getMainLooper()).post(runnable);
     }
 
     private Bitmap scaleBitmapDown(Bitmap bitmap, int maxDimension) {
@@ -105,6 +119,7 @@ public class GoogleVisionService {
         } catch (IOException e) {
             Log.d(TAG, "failed to make API request because of other IOException " +
                     e.getMessage());
+            sendErrorResult(e.getMessage());
         }
     }
 
@@ -186,7 +201,6 @@ public class GoogleVisionService {
         @Override
         protected GsvResult doInBackground(Object... params) {
             GsvResult result = new GsvResult();
-            result.map = new HashMap<>();
             try {
                 Log.d(TAG, "created Cloud Vision request object, sending request");
                 BatchAnnotateImagesResponse response = mRequest.execute();
