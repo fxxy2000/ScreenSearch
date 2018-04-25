@@ -1,4 +1,4 @@
-package com.assistant.screensearch;
+package com.assistant.screensearch.GoogleVision;
 
 import android.content.Context;
 import android.graphics.Bitmap;

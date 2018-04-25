@@ -1,4 +1,4 @@
-package com.assistant.screensearch;
+package com.assistant.screensearch.Assistant;
 /*
  * Copyright (C) 2015 The Android Open Source Project
  *

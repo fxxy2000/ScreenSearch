@@ -1,4 +1,4 @@
-package com.assistant.screensearch;
+package com.assistant.screensearch.GoogleVision;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.assistant.screensearch.GoogleVision.GoogleVisionService;
+import com.assistant.screensearch.R;
 
 import org.junit.Assert;
 import org.junit.Test;

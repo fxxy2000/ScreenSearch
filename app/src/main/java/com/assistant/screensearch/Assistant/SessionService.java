@@ -1,5 +1,4 @@
-package com.assistant.screensearch;
-/*
+package com.assistant.screensearch.Assistant;/*
  * Copyright (C) 2014 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +13,16 @@ package com.assistant.screensearch;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.service.voice.VoiceInteractionService;
+import android.os.Bundle;
+import android.service.voice.VoiceInteractionSession;
+import android.service.voice.VoiceInteractionSessionService;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class MainService extends VoiceInteractionService {
-
+public class SessionService extends VoiceInteractionSessionService {
+    @Override
+    public VoiceInteractionSession onNewSession(Bundle args) {
+        return new Session(this);
+    }
 }

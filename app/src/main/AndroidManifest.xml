@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
 
-        <service android:name=".MainService"
+        <service android:name=".Assistant.MainService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_VOICE_INTERACTION"
             android:process=":interactor">
@@ -19,7 +19,7 @@
                 <action android:name="android.service.voice.VoiceInteractionService" />
             </intent-filter>
         </service>
-        <service android:name=".SessionService"
+        <service android:name=".Assistant.SessionService"
             android:process=":session">
         </service>
     </application>

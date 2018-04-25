@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"/>
-    <com.assistant.screensearch.AssistVisualizer android:id="@+id/assist_visualizer"
+    <com.assistant.screensearch.Assistant.AssistVisualizer
+        android:id="@+id/assist_visualizer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <FrameLayout android:layout_width="match_parent"

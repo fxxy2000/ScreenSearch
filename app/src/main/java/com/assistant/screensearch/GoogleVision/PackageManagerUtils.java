@@ -1,4 +1,4 @@
-package com.assistant.screensearch;
+package com.assistant.screensearch.GoogleVision;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
